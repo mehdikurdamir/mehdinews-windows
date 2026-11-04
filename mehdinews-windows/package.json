@@ -1,0 +1,41 @@
+{
+  "name": "mehdinews",
+  "productName": "MehdiNews",
+  "version": "1.0.0",
+  "description": "MehdiNews - اخبار فناوری به زبان فارسی",
+  "main": "src/main.js",
+  "author": "MehdiNews",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis --x64"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.11.2"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "ir.mehdinews.app",
+    "productName": "MehdiNews",
+    "files": ["src/**/*", "package.json"],
+    "directories": { "output": "dist", "buildResources": "build" },
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "build/icon.png",
+      "signAndEditExecutable": true,
+      "artifactName": "MehdiNews-Setup-${version}.exe"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "MehdiNews",
+      "language": "1065"
+    }
+  }
+}
